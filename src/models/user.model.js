@@ -47,7 +47,7 @@ const userSchema = new Schema({
 userSchema.pre("save",async function(next){
     if(this.isModified("password"))
     {
-        this.password = bcrypt.hash(this.password,10); //modified sobsomoy hobe na start e jokon password dibi tokon ar update er somoy password modify hoye thake 
+        this.password = await bcrypt.hash(this.password,10); //modified sobsomoy hobe na start e jokon password dibi tokon ar update er somoy password modify hoye thake 
         next();
     }
     else{
